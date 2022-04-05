@@ -79,13 +79,16 @@ body{
 .mod{
     margin: 10px 0px;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     background-color: #8d8daa;
     color: #ffffff;
     border-radius: 10px;
 }
 .mod-icon{
     margin: auto  auto;
+}
+.btn-texts{
+    margin: 20px 0px;
 }
 .head-box2{
     margin: 0px 0px;
