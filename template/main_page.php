@@ -26,7 +26,7 @@
                         <!-- box1 content -->
                         <div class="box1">
                             <div class="box1-content">
-                                <img class="avatar" src="assets/image/IMG_20211004_075621.jpg" alt="" width="90px" height="90px">
+                                <img class="avatar" src="assets/image/" alt="" width="90px" height="90px">
                                 <p class="name">Example name</p>
                                 <p class="email">Example@gmail.com</p>
                             </div>
@@ -36,9 +36,18 @@
                         <!-- box3 content -->
                         <div class="box3">
                             <div class="box3-content">
-                                <div class="title-mods">
+                                <div class="title-mods" id="create_mod">
                                     <h2>Mods</h2>
                                 </div>
+
+                                <!-- Mods creator  -->
+                                <div class="send-data" id="form_for_data" style="display:none;">
+                                    <input type="text" id="name_of_mod" placeholder="Mod name">
+                                    <input type="text" id="description_of_mod" placeholder="Mod Description">
+                                    <br>
+                                    <button class="btn btn-send">Send</button>
+                                </div>
+
                                 <!-- Mods Boxes -->
                                 <div class="mod-boxes">
                                     <div class="mod" style="background-color: #8FBDD3 ;">
@@ -68,9 +77,16 @@
                                 <div class="box2-content">
                                     <div class="head-box2">
                                         <h2 class="content-box2">All Tasks</h2>
-                                        <button class="btn content-box2 btn-add">Add Task</button>
+                                        <button class="btn content-box2 btn-add" id="add_task">Add Task</button>
                                     </div>
                                     <!-- Box2 content about Tasks -->
+                                    <!-- Mods creator  -->
+                                <div class="send-data" id="form_for_data_task" style="display:none;">
+                                    <input type="text" id="name_of_Task" placeholder="Task name">
+                                    <input type="text" id="description_of_Task" placeholder="Task Description">
+                                    <br>
+                                    <button class="btn btn-send">Send</button>
+                                </div>
                                     <div class="tasks-box-storage">
                                         <!-- Tasks -->
                                         <div class="task">
@@ -93,6 +109,21 @@
             </div>
         </div>
         <!-- This section about content in body -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $("#create_mod").click(function(){
+                $("#form_for_data").fadeIn(400)
+                $("#create_mod").dblclick(function(){
+                        $("#form_for_data").fadeOut(400)
+                })
+            });
+            $("#add_task").click(function(){
+                $("#form_for_data_task").fadeIn(400)
+                $("#add_task").dblclick(function(){
+                        $("#form_for_data_task").fadeOut(400)
+                })
+            });
+        </script>
     </body>
 </html>
 
