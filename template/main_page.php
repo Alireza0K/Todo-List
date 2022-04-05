@@ -49,6 +49,9 @@
                                             <h3>Mod name</h3>
                                             <p>Discription</p>
                                         </div>
+                                        <div class="texts" style="color: b;">
+                                        <button class="btn btn-delete  btn-texts"><span><img src="assets/image/trash-2.svg" alt="" width="25px"></span></button>
+                                        </div>
                                     </div>
                                     
                                 </div>
