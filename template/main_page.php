@@ -45,23 +45,25 @@
                                     <input type="text" id="name_of_mod" placeholder="Mod name">
                                     <input type="text" id="description_of_mod" placeholder="Mod Description">
                                     <br>
-                                    <button class="btn btn-send">Send</button>
+                                    <button class="btn btn-send" id="create_new_mod">Send</button>
                                 </div>
 
                                 <!-- Mods Boxes -->
-                                <div class="mod-boxes">
-                                    <div class="mod" style="background-color: #8FBDD3 ;">
+                                <div class="mod-boxes" id="mod_boxes">
+                                    <?php foreach($get_mods as $mod): ?>
+                                    <div class="mod" >
                                         <div class="mod-icon">
                                             <img src="assets/image/home.svg" alt="" width="50px" style="color: white;">
                                         </div>
                                         <div class="texts" style="color: b;">
-                                            <h3>Mod name</h3>
-                                            <p>Discription</p>
+                                            <h3><?php echo $mod->Name?></h3>
+                                            <p><?php echo $mod->Discription?></p>
                                         </div>
                                         <div class="texts" style="color: b;">
-                                        <button class="btn btn-delete  btn-texts"><span><img src="assets/image/trash-2.svg" alt="" width="25px"></span></button>
+                                            <a href="?mod_id=<?php echo $mod->ID;?>"><button class="btn btn-delete  btn-texts"><span><img src="assets/image/trash-2.svg" alt="" width="25px"></span></button></a>
                                         </div>
                                     </div>
+                                    <?php endforeach;?>
                                     
                                 </div>
                             
@@ -80,7 +82,7 @@
                                         <button class="btn content-box2 btn-add" id="add_task">Add Task</button>
                                     </div>
                                     <!-- Box2 content about Tasks -->
-                                    <!-- Mods creator  -->
+                                    <!-- Task creator  -->
                                 <div class="send-data" id="form_for_data_task" style="display:none;">
                                     <input type="text" id="name_of_Task" placeholder="Task name">
                                     <input type="text" id="description_of_Task" placeholder="Task Description">
@@ -89,19 +91,20 @@
                                 </div>
                                     <div class="tasks-box-storage">
                                         <!-- Tasks -->
+                                        <?php foreach($get_tasks  as $task):?>
                                         <div class="task">
                                             <div class="left-content">
-                                                <h3 class="title-task" >Task Title</h3>
+                                                <h3 class="title-task" ><?php echo $task->Name;?></h3>
                                                 <div><hr class="hrwidth"></div>
                                                 <br>
-                                                <p class="discription">Discription</p>
+                                                <p class="discription"><?php echo $task->Description;?></p>
                                             </div>
                                             <div class="right-content">
                                                 <button class="btn btn-delete btn-in"><span><img src="assets/image/trash-2.svg" alt="" width="25px"></span></button>
                                                 <button class="btn btn-success btn-in"><span><img src="assets/image/check.svg" alt="" width="25px"></span></button>
                                             </div>
                                         </div>
-                                        
+                                        <?php endforeach;?>
                                     </div>
                                 </div>
                             </div> 
@@ -123,9 +126,25 @@
                         $("#form_for_data_task").fadeOut(400)
                 })
             });
+            $(document).ready(function(){
+                $("#create_new_mod").click(function(){
+                    var mod_name = $("#name_of_mod").val();
+                    var mod_description = $("#description_of_mod").val();
+                    $.ajax({
+                        url : "process/ajax_handler.php",
+                        method : "post",
+                        data : {
+                            action : "add_mod",
+                            mod_name : mod_name,
+                            mod_description : mod_description
+                        },
+                        success :function(response){                            
+                            response = JSON.parse(response);
+                            $('<div class="mod" > <div class="mod-icon"> <img src="assets/image/home.svg" alt="" width="50px" style="color: white;"> </div> <div class="texts" style="color: b;"> <h3>'+response[0].Name+'</h3> <p>'+response[0].Discription+'</p> </div> <div class="texts" style="color: b;"> <a href="?mod_id='+response[0].ID+'"><button class="btn btn-delete  btn-texts"><span><img src="assets/image/trash-2.svg" alt="" width="25px"></span></button></a> </div> </div>').appendTo("#mod_boxes")
+                        }
+                    })
+                })
+            });
         </script>
     </body>
 </html>
-
-
-
