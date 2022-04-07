@@ -52,10 +52,42 @@ function Get_tasks()
 {
     global $connection;
 
-        # Query for select all Tasks from database
-        $sql = "SELECT * FROM tasks";
-        $stmt = $connection->prepare($sql);
-        $stmt->execute();
-        $tasks = $stmt->fetchAll(PDO::FETCH_OBJ);
-        return $tasks;
+    # Query for select all Tasks from database
+    $selected_mod = $_GET["mod_id_task"] ?? "";
+    if(isset($selected_mod) && is_numeric($selected_mod)){
+        $selected_mod = "and Mod_id = $selected_mod";
+    }
+    $sql = "SELECT * FROM tasks WHERE User_id = :user_idd  $selected_mod ";
+    $stmt = $connection->prepare($sql);
+    $stmt->execute(["user_idd" =>current_user()]);
+    $tasks = $stmt->fetchAll(PDO::FETCH_OBJ);
+    return $tasks;
+}
+function Delete_Task($task_id)
+{
+    global $connection;
+
+    # Query for Delete a task from database
+    $sql = "DELETE FROM tasks WHERE ID = :task_id ";
+    $stmt = $connection->prepare($sql);
+    $stmt->execute(["task_id" => $task_id]);
+}
+function Add_new_task($task_name , $task_description , $mod_id)
+{
+    global $connection;
+
+    # Query for insert a new task in database
+    $sql = "INSERT INTO tasks (Name , Description , Mod_id , User_id) VALUES ( :task_name , :task_des , :mod_id  , :user_idd)";
+    $stmt = $connection->prepare($sql);
+    $stmt->execute(["task_name" => $task_name , "task_des" => $task_description , "mod_id" => $mod_id , "user_idd" => current_user()]);
+}
+
+function Taggle_status($task_id , $current_status)
+{
+    global $connection;
+
+    # Query for Taggle status of a Task
+    $sql = "UPDATE tasks SET Status = 1 - :current_status WHERE  User_id = :user_idd AND ID = :id ";
+    $stmt = $connection->prepare($sql);
+    $stmt->execute(["current_status" => $current_status , "user_idd" => current_user() , "id" => $task_id]);
 }

@@ -14,5 +14,11 @@ switch($_POST["action"]){
     case "add_mod":
         Add_new_mod($_POST["mod_name"] , $_POST["mod_description"]);
         break;
+    case "add_task":
+        Add_new_task($_POST["task_name"] , $_POST["task_description"] , $_POST["mod_id"]);
+        break;
+    case "taggle_status":
+        Taggle_status($_POST["task_id"] , $_POST["current_status"]);
+        break;
 }
 
