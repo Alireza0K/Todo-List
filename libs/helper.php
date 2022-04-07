@@ -13,3 +13,8 @@ function isajax()
     }
     return false;
 }
+
+function site_url($uri = "")
+{
+    return BASE_URL . $uri;
+}

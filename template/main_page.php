@@ -48,12 +48,23 @@
                                     <button class="btn btn-send" id="create_new_mod">Send</button>
                                 </div>
 
+                                <!--  Defualt Box -->
+                                <div class="mod defualt-box" style="background:#97DBAE;">
+                                    <div class="mod-icon">
+                                    <a href="<?php echo site_url();?>"><img src="assets/image/home.svg" alt="" width="50px" style="color: white;"></a>
+                                    </div>
+                                    <div class="texts" style="color: b;">
+                                        <h3>All</h3>
+                                        <p>All Task in there</p>
+                                    </div>
+                                </div>
                                 <!-- Mods Boxes -->
                                 <div class="mod-boxes" id="mod_boxes">
                                     <?php foreach($get_mods as $mod): ?>
                                     <div class="mod" >
+                                    
                                         <div class="mod-icon">
-                                            <img src="assets/image/home.svg" alt="" width="50px" style="color: white;">
+                                            <a href="?mod_id_task=<?php echo $mod->ID;?>"><img src="assets/image/home.svg" alt="" width="50px" style="color: white;"></a>
                                         </div>
                                         <div class="texts" style="color: b;">
                                             <h3><?php echo $mod->Name?></h3>
@@ -62,6 +73,7 @@
                                         <div class="texts" style="color: b;">
                                             <a href="?mod_id=<?php echo $mod->ID;?>"><button class="btn btn-delete  btn-texts"><span><img src="assets/image/trash-2.svg" alt="" width="25px"></span></button></a>
                                         </div>
+                                        
                                     </div>
                                     <?php endforeach;?>
                                     
@@ -87,7 +99,7 @@
                                     <input type="text" id="name_of_Task" placeholder="Task name">
                                     <input type="text" id="description_of_Task" placeholder="Task Description">
                                     <br>
-                                    <button class="btn btn-send">Send</button>
+                                    <button class="btn btn-send" id="add_new_task">Send</button>
                                 </div>
                                     <div class="tasks-box-storage">
                                         <!-- Tasks -->
@@ -100,8 +112,9 @@
                                                 <p class="discription"><?php echo $task->Description;?></p>
                                             </div>
                                             <div class="right-content">
-                                                <button class="btn btn-delete btn-in"><span><img src="assets/image/trash-2.svg" alt="" width="25px"></span></button>
-                                                <button class="btn btn-success btn-in"><span><img src="assets/image/check.svg" alt="" width="25px"></span></button>
+                                                <a href="?task_id=<?php echo $task->ID;?>"><button class="btn btn-delete btn-in" onclick='return confirm("are you sure about that Delete task: <?php echo $task->Name;?>")' ><span><img src="assets/image/trash-2.svg" alt="" width="25px"></span></button></a>
+                                                <?php echo $task->Status ? "<a data-task_id='$task->ID' data-task_status='$task->Status' class='task_toggle'><p class='complete'>Completed Task</p></a>" : "<a data-task_id='$task->ID'  data-task_status='$task->Status' class='task_toggle'><button class='btn btn-success btn-in'><span><img src='assets/image/check.svg' alt='' width='25px'></span></button></a>"?>
+                                                
                                             </div>
                                         </div>
                                         <?php endforeach;?>
@@ -142,9 +155,56 @@
                             response = JSON.parse(response);
                             $('<div class="mod" > <div class="mod-icon"> <img src="assets/image/home.svg" alt="" width="50px" style="color: white;"> </div> <div class="texts" style="color: b;"> <h3>'+response[0].Name+'</h3> <p>'+response[0].Discription+'</p> </div> <div class="texts" style="color: b;"> <a href="?mod_id='+response[0].ID+'"><button class="btn btn-delete  btn-texts"><span><img src="assets/image/trash-2.svg" alt="" width="25px"></span></button></a> </div> </div>').appendTo("#mod_boxes")
                         }
-                    })
-                })
+                    });
+                });
+                $("#add_new_task").click(function(){
+                    var name_of_task = $("#name_of_Task").val();
+                    var description_of_task = $("#description_of_Task").val();
+                    // Get current URl
+                    var current_url = window.location.href; 
+                    var params = (new URL(current_url)).searchParams;
+                    var mod_id = params.get("mod_id_task");
+                    $.ajax({
+                        url : "process/ajax_handler.php",
+                        method : "post",
+                        data : {
+                            action : "add_task",
+                            task_name : name_of_task,
+                            task_description : description_of_task,
+                            mod_id : mod_id
+                        },
+                        success :function(response){                            
+                            console.log(response);
+                            location.reload();
+                        },
+                        error :function(response){
+                            console.log(response)
+                        }
+                    });
+                });
+                $(".task_toggle").click(function(){
+                    var task_id = $(this).attr("data-task_id");
+                    var task_status = $(this).attr("data-task_status");
+
+                    $.ajax({
+                        url : "process/ajax_handler.php",
+                        method : "post",
+                        data : {
+                            action : "taggle_status",
+                            task_id : task_id,
+                            current_status : task_status
+                        },
+                        success :function(response){                            
+                            console.log(response);
+                            location.reload();
+                        },
+                        error :function(response){
+                            console.log(response)
+                        }
+                    });
+                });
             });
+            
         </script>
     </body>
 </html>
