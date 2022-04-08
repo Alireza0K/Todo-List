@@ -1,4 +1,7 @@
 <?php 
+# Session start
+session_start();
+
 # Call All file
 require "config.php";
 require "constant.php";

@@ -1,4 +1,5 @@
 <?php 
+
 require "../bootstrap/init.php";
 
 # Validation
@@ -19,6 +20,9 @@ switch($_POST["action"]){
         break;
     case "taggle_status":
         Taggle_status($_POST["task_id"] , $_POST["current_status"]);
+        break;
+    case "sign_out":
+        Sign_out();
         break;
 }
 

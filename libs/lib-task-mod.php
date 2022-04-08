@@ -1,4 +1,7 @@
 <?php 
+# premission denied
+defined("BASE_PATH") OR die("permission denied");
+
 
 /***  Mods ***/
 

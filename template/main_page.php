@@ -20,15 +20,15 @@
             <div class="main">
                 <div class="section-1">
                     <div class="signout_btn">
-                        <button class="btn signout_btn">signout</button>
+                        <button class="btn signout_btn" id="sign_out">signout</button>
                     </div>
                     <div class="grid_boxes">
                         <!-- box1 content -->
                         <div class="box1">
                             <div class="box1-content">
                                 <img class="avatar" src="assets/image/" alt="" width="90px" height="90px">
-                                <p class="name">Example name</p>
-                                <p class="email">Example@gmail.com</p>
+                                <p class="name"><?php echo Get_username();?></p>
+                                <p class="email"><?php echo Get_user_email()?></p>
                             </div>
                         </div>
                         <!-- box2 content -->
@@ -203,6 +203,22 @@
                         }
                     });
                 });
+                $("#sign_out").click(function(){
+                    $.ajax({
+                        url : "process/ajax_handler.php",
+                        method : "post",
+                        data : {
+                            action : "sign_out",
+                        },
+                        success :function(response){            
+                            console.log(response);               
+                            location.reload();
+                        },
+                        error :function(response){
+                            console.log(response)
+                        }
+                    });
+                })
             });
             
         </script>

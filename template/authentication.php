@@ -21,7 +21,7 @@
                 <div class="register">
                     <div class="content-form">
                         <div class="title">Register</div>
-                        <form action="" method="post">
+                        <form action="?action=register" method="post">
                             <input type="text" name="username" placeholder="Username" autocomplete="off">
                             <input type="email" name="email" placeholder="Email" autocomplete="off">
                             <input type="password" name="password" placeholder="Password" autocomplete="off">
@@ -33,8 +33,8 @@
                 <div class="login">
                     <div class="content-form">
                         <div class="title">Login</div>
-                            <form action="" method="post">
-                                <input type="text" name="username" placeholder="Username">
+                            <form action="?action=login" method="post">
+                                <input type="email" name="email" placeholder="Email">
                                 <input type="password" name="password" placeholder="Password">
                                 <button type="submit" class="btn">Login</button>
                             </form>
