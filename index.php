@@ -1,6 +1,11 @@
 <?php 
 require "bootstrap/init.php";
 
+if (!Logged_in()) {
+    // redirect to authentication form
+    header("location: ". site_url("auth.php"));
+}
+
 if(isset($_GET["mod_id"]) && is_numeric($_GET["mod_id"])){
     Delete_mod($_GET["mod_id"]);
 }
