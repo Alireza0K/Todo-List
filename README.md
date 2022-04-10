@@ -26,7 +26,7 @@ Change This:
 ];
 ```
 
-After making the above settings, it is time to do the next series of settings, you will then go to the constant.php file in the same folder and implement your settings.
+After making the above settings, it is time to do the next series of settings, you will then go to the `constant.php` file in the same folder and implement your settings.
 
 Change This:
 
