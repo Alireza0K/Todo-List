@@ -1,0 +1,73 @@
+body{
+    background-color: #f7f5f2;
+    font-family:Arial, Helvetica, sans-serif !important;
+}
+@font-face {
+    font-family: million_dream;
+    src: url(../fonts/BillionDreams-vmgK9.ttf);
+}
+a{
+    text-decoration: none;
+}
+.body{
+    width: 75%;
+    margin: 0px auto;
+}
+.main{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    padding: 10px 10px;
+}
+.main >div{
+    background-color: #525E75;
+    color: #ece2d2;
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+.login{
+    background: #78938A !important;
+}
+
+.content-form{
+    width: 60%;
+    margin: 0px auto;
+}
+.title{
+    font-family: million_dream;
+    font-size: 50px;
+    display: block;
+    text-align: center;
+    padding: 0px;
+    color: #FFEEEE;
+    cursor: pointer;
+}
+.content-form input{
+    width: 100%;
+    margin: 10px 0px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+.content-form input:focus{
+    outline: none;
+}
+.btn{
+    text-align: center !important;
+    margin: 10px auto !important;
+    display: block;
+    font-family: sans-serif;
+    border: none;
+    width: 35%;
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.login-form{
+    width: 60%;
+    margin: 0px auto;
+}
