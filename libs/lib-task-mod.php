@@ -66,6 +66,8 @@ function Get_tasks()
     $tasks = $stmt->fetchAll(PDO::FETCH_OBJ);
     return $tasks;
 }
+
+# Delete Task
 function Delete_Task($task_id)
 {
     global $connection;
@@ -75,6 +77,8 @@ function Delete_Task($task_id)
     $stmt = $connection->prepare($sql);
     $stmt->execute(["task_id" => $task_id]);
 }
+
+# Add new task
 function Add_new_task($task_name , $task_description , $mod_id)
 {
     global $connection;
@@ -85,6 +89,7 @@ function Add_new_task($task_name , $task_description , $mod_id)
     $stmt->execute(["task_name" => $task_name , "task_des" => $task_description , "mod_id" => $mod_id , "user_idd" => current_user()]);
 }
 
+# Change task status
 function Taggle_status($task_id , $current_status)
 {
     global $connection;
