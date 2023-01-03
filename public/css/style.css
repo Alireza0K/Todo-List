@@ -213,3 +213,65 @@ header .headerBox .btn-register{
     flex-grow: 40;
     border-radius: 10px;
 }
+
+.boxes .side .modsBox .modsBoxTitel{
+    width: 100%;
+    margin: 0px 0px 10px 0px;
+}
+
+.boxes .side .modsBox .modsBoxTitel h3{
+    font-weight: 500;
+    font-size: x-large;
+}
+
+.boxes .side .modsBox > section{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.boxes .side .modsBox  section .modBox{
+    width: 100%;
+    padding: 5px 0px;
+    background-color: #cfcfcf;
+    border-radius: 10px;
+}
+
+.side section .modBox .ModboxContent{
+    padding: 0px 10px;
+}
+
+.side section .modBox .ModboxContent h3{
+    font-size: medium;
+}
+
+.side section .modBox .ModboxContent p{
+    font-size: small;
+    color: rgb(14, 11, 27);
+    line-height: 20px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.side section .modBox .ModboxContent button{
+    background-color: rgb(255 17 74);
+    color: white;
+}
+
+.side section .addMod .addModForm input{
+    outline: none;
+    border: none;
+    padding: 8px 5px;
+    font-size: medium;
+    border-radius: 5px;
+}
+.side section .addMod .addModForm button{
+    background-color: rgb(14, 11, 27);
+    color: white;
+}

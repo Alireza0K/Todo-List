@@ -37,7 +37,41 @@
                     </section>
                 </div>
                 <div class="modsBox">
-                    <section></section>
+                    <div class="modsBoxTitel">
+                        <h3>Mods</h3>
+                    </div>
+                    <section>
+                        <div class="modBox">
+                            <div class="ModboxContent">
+                                <h3>Mod Name</h3>
+                                <p>Mod Description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                    eiusmod
+                                    tempor
+                                    incididunt ut labore et dolore magna aliqua.</p>
+                                    <button class="btn">Delete</button>
+                            </div>
+                        </div>
+
+                        <div class="modBox">
+                            <div class="ModboxContent">
+                                <h3>Mod Name</h3>
+                                <p>Mod Description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                    eiusmod
+                                    tempor
+                                    incididunt ut labore et dolore magna aliqua.</p>
+                                    <button class="btn">Delete</button>
+                            </div>
+                        </div>
+
+                        <div class="addMod">
+                            <div class="addModForm">
+                                <form action="">
+                                    <input type="text" placeholder="Mod Name">
+                                    <button class="btn" type="submit">Add Mod</button>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
             <div class="todoBox">
