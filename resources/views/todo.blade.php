@@ -8,6 +8,22 @@
     <link rel="stylesheet" href={{ asset('css/style.css') }}>
 </head>
 <body>
-    
+    <div class="main">
+        <header>
+            <div class="headerBox">
+                <button class="btn btn-register">Sign in | Sign out</button>
+            </div>
+        </header>
+
+        <div class="boxes">
+                <div class="side">
+                    <div class="profileBox"></div>
+                    <div class="modsBox"></div>
+                </div>
+                <div class="todoBox"></div>
+        </div>
+        
+        {{-- main --}}
+    </div>
 </body>
 </html>

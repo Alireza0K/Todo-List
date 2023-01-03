@@ -116,9 +116,65 @@ table {
 body {
     font-family: sans-serif;
     line-height: 1;
-    background: black;
+    background: #fcfcfc;
 }
 
 a {
     text-decoration: none;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1300px;
+    height:10px;
+    margin: 0px auto;
+}
+
+header .headerBox{
+    padding: 10px 0px;
+}
+
+header .headerBox .btn-register{
+    background-color: rgb(14, 11, 27);
+    color: #f1f1f1;
+    float: right;
+}
+
+.main .btn{
+    outline: none;
+    border: none;
+    padding: 8px 4px;
+    border-radius: 5px;
+    font-size: medium;
+}
+
+.main .boxes{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+}
+
+.main .boxes .side{
+    flex-grow: 3;
+}
+
+.main .boxes .side .profileBox{
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+.main .boxes .side .modsBox{
+    margin: 10px 0px;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+.main .boxes .todoBox{
+    background-color: #f2f2f2;
+    padding: 10px;
+    flex-grow: 8;
 }
