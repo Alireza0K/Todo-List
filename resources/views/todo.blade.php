@@ -48,7 +48,7 @@
                                     eiusmod
                                     tempor
                                     incididunt ut labore et dolore magna aliqua.</p>
-                                    <button class="btn">Delete</button>
+                                <button class="btn">Delete</button>
                             </div>
                         </div>
 
@@ -59,7 +59,7 @@
                                     eiusmod
                                     tempor
                                     incididunt ut labore et dolore magna aliqua.</p>
-                                    <button class="btn">Delete</button>
+                                <button class="btn">Delete</button>
                             </div>
                         </div>
 
@@ -75,7 +75,46 @@
                 </div>
             </div>
             <div class="todoBox">
-                <section></section>
+                <div class="TodoModsName">
+                    <h3>Mod Name</h3>
+                    <p>All Tasks</p>
+                </div>
+                <section>
+                    <div class="TasksBoxes">
+                        <div class="taskBox">
+                            <div class="taskBoxContent">
+                                <div class="leftSide">
+                                    <div class="taskTitle">
+                                        <h3>Task Title</h3>
+                                    </div>
+                                    <div class="taskDescription">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                                            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="rightSide">
+                                    <button class="btn btn-edit">Edit</button>
+                                    <button class="btn btn-complete">Complete</button>
+                                    <button class="btn btn-delete">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="addTask">
+                        <form action="">
+                            <input type="text" placeholder="Task Name" name="taskname">
+                            <input type="text" placeholder="Description" name="description">
+                            <button class="btn">Add Task</button>
+                        </form>
+                    </div>
+                </section>
             </div>
         </div>
 
