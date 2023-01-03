@@ -29,7 +29,9 @@
                                 <h3>Alireza Karimi</h3>
                             </div>
                             <div class="Bio">
-                                <p>Hello Im Alireza Karimi Im a php Developer</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua.
+                                </p>
                             </div>
                         </div>
                     </section>

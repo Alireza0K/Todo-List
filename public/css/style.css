@@ -179,7 +179,7 @@ header .headerBox .btn-register{
 
 .side .profileBox section .profileImageBox img{
     width: 100%;
-    border-radius: 30px;
+    border-radius: 20px;
 }
 
 .side .profileBox section .profileContentBox{
@@ -188,6 +188,10 @@ header .headerBox .btn-register{
 }
 .side .profileBox section .profileContentBox p{
     line-height: 25px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 .side .profileBox section .profileContentBox h3{
