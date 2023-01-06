@@ -81,30 +81,25 @@
                 </div>
                 <section>
                     <div class="TasksBoxes">
-                        <div class="taskBox">
-                            <div class="taskBoxContent">
-                                <div class="leftSide">
-                                    <div class="taskTitle">
-                                        <h3>Task Title</h3>
+                        @foreach ($tasks as $task)
+                            <div class="taskBox">
+                                <div class="taskBoxContent">
+                                    <div class="leftSide">
+                                        <div class="taskTitle">
+                                            <h3>{{ $task->name }}</h3>
+                                        </div>
+                                        <div class="taskDescription">
+                                            <p>{{ $task->description }}</p>
+                                        </div>
                                     </div>
-                                    <div class="taskDescription">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                                            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </p>
+                                    <div class="rightSide">
+                                        <button class="btn btn-edit">Edit</button>
+                                        <button class="btn btn-complete">Complete</button>
+                                        <button class="btn btn-delete">Delete</button>
                                     </div>
-                                </div>
-                                <div class="rightSide">
-                                    <button class="btn btn-edit">Edit</button>
-                                    <button class="btn btn-complete">Complete</button>
-                                    <button class="btn btn-delete">Delete</button>
                                 </div>
                             </div>
-                        </div>
-
+                        @endforeach
 
                     </div>
                     <div class="addTask">

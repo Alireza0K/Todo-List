@@ -17,6 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/TodoList", function(){
-    return view("todo");
-});
+Route::get("/TodoList", [\App\Http\Controllers\TodoPageController::class , "index"]);
