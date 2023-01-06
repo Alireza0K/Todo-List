@@ -17,4 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/TodoList", [\App\Http\Controllers\TodoPageController::class , "index"]);
+Route::get("/TodoList", [\App\Http\Controllers\TodoPageController::class , "index"])->name("home");
+
+Route::post("/TodoList", [\App\Http\Controllers\TodoPageController::class , "addTask"]);
