@@ -289,6 +289,7 @@ header .headerBox .btn-register{
     max-width: 65%;
     flex-grow: 40;
     border-radius: 10px;
+    margin: 0px 0px 20px 0px;
 }
 
 .boxes .todoBox section{
@@ -307,6 +308,13 @@ header .headerBox .btn-register{
 
 .boxes section .TasksBoxes{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    gap: 10px;
+    align-items: center;
 }
 
 .boxes section .TasksBoxes .taskBox{
