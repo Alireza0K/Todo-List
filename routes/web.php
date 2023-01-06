@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get("/TodoList", [\App\Http\Controllers\TodoPageController::class , "index"])->name("home");
 
 Route::post("/TodoList", [\App\Http\Controllers\TodoPageController::class , "addTask"]);
+
+Route::delete("/TodoList/{taskId}", [\App\Http\Controllers\TodoPageController::class , "deleteTask"])->name("delete");

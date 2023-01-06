@@ -347,6 +347,15 @@ header .headerBox .btn-register{
     line-height: 25px;
 }
 
+.taskBox .rightSide{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+
 .addTask form input{
     outline: none;
     border: none;

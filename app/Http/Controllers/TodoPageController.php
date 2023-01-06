@@ -28,4 +28,11 @@ class TodoPageController extends Controller
 
         return redirect()->route("home");
     }
+
+    public function deleteTask(Request $request,$taskId)
+    {
+        Task::where('id', $taskId)->delete();
+
+        return redirect()->route("home");
+    }
 }

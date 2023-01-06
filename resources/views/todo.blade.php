@@ -93,9 +93,21 @@
                                         </div>
                                     </div>
                                     <div class="rightSide">
-                                        <button class="btn btn-edit">Edit</button>
-                                        <button class="btn btn-complete">Complete</button>
-                                        <button class="btn btn-delete">Delete</button>
+                                        <form action={{ route('delete', ['taskId'=>$task->id]) }} method="POST">
+                                            @csrf
+                                            @method('delete') 
+                                            <button type="submit" class="btn btn-delete">Delete</button>
+                                        </form>
+                                        <form action="" method="POST">
+                                            @csrf
+                                            @method('delete') 
+                                            <button class="btn btn-complete">Complete</button>
+                                        </form>
+                                        <form action="" method="POST">
+                                            @csrf
+                                            @method('delete') 
+                                            <button class="btn btn-edit">Edit</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
