@@ -93,9 +93,21 @@
                                         </div>
                                     </div>
                                     <div class="rightSide">
-                                        <button class="btn btn-edit">Edit</button>
-                                        <button class="btn btn-complete">Complete</button>
-                                        <button class="btn btn-delete">Delete</button>
+                                        <form action={{ route('delete', ['taskId'=>$task->id]) }} method="POST">
+                                            @csrf
+                                            @method('delete') 
+                                            <button type="submit" class="btn btn-delete">Delete</button>
+                                        </form>
+                                        <form action="" method="POST">
+                                            @csrf
+                                            @method('delete') 
+                                            <button class="btn btn-complete">Complete</button>
+                                        </form>
+                                        <form action="" method="POST">
+                                            @csrf
+                                            @method('delete') 
+                                            <button class="btn btn-edit">Edit</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -103,10 +115,12 @@
 
                     </div>
                     <div class="addTask">
-                        <form action="">
+                        <form action="\TodoList" method="POST">
+                            @csrf
                             <input type="text" placeholder="Task Name" name="taskname">
                             <input type="text" placeholder="Description" name="description">
-                            <button class="btn">Add Task</button>
+                            <input type="text" placeholder="" style="display: none" name="user_id" value="1">
+                            <button class="btn" type="submit">Add Task</button>
                         </form>
                     </div>
                 </section>
