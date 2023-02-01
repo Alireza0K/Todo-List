@@ -41,32 +41,26 @@
                         <h3>Mods</h3>
                     </div>
                     <section>
+                        @foreach($mods as $mod)
                         <div class="modBox">
                             <div class="ModboxContent">
-                                <h3>Mod Name</h3>
-                                <p>Mod Description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                    eiusmod
-                                    tempor
-                                    incididunt ut labore et dolore magna aliqua.</p>
-                                <button class="btn">Delete</button>
+                                <h3>{{$mod->name}}</h3>
+                                <p></p>
+                                <form action={{ route('deleteMod', ['modId' => $mod->id]) }} method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn">Delete</button>
+                                </form>
                             </div>
                         </div>
-
-                        <div class="modBox">
-                            <div class="ModboxContent">
-                                <h3>Mod Name</h3>
-                                <p>Mod Description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                    eiusmod
-                                    tempor
-                                    incididunt ut labore et dolore magna aliqua.</p>
-                                <button class="btn">Delete</button>
-                            </div>
-                        </div>
+                        @endforeach
 
                         <div class="addMod">
                             <div class="addModForm">
-                                <form action="">
-                                    <input type="text" placeholder="Mod Name">
+                                <form action={{ route("addMod") }} method="POST">
+                                    @csrf
+                                    <input type="text" placeholder="Mod Name" name="modeName" autocomplete="off">
+                                    <input type="text" placeholder="" style="display: none" name="user_id" value="1">
                                     <button class="btn" type="submit">Add Mod</button>
                                 </form>
                             </div>

@@ -27,3 +27,7 @@ Route::delete("/TodoList/{taskId}", [\App\Http\Controllers\TodoPageController::c
 Route::put('/TodoList/complete/{id}', [\App\Http\Controllers\TodoPageController::class , "completeTask"])->name("complete");
 
 Route::get('TodoList/{taskId}/edit', [\App\Http\Controllers\TodoPageController::class, "editTask"])->name("edit");
+
+Route::post("/TodoList", [\App\Http\Controllers\TodoPageController::class , "addMod"])->name("addMod");
+
+Route::delete("/TodoList/delete-mod/{modId}", [\App\Http\Controllers\TodoPageController::class , "deleteMod"])->name("deleteMod");
