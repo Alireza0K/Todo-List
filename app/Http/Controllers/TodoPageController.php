@@ -52,4 +52,9 @@ class TodoPageController extends Controller
 
         return redirect(route("home"));
     }
+
+    public function editTask(Request $request,$taskId)
+    {
+        return redirect(route("home"));
+    }
 }

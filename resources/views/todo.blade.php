@@ -111,9 +111,9 @@
                                             @endif
                                             <button class="btn btn-complete" style="{{ $visiable }}">{{$complete}}</button>
                                         </form>
-                                        <form action="" method="POST">
+                                        <form action={{route('edit', ['taskId' => $task->id])}} method="get">
                                             @csrf
-                                            @method('delete')
+                                            @method('get')
                                             <button class="btn btn-edit">Edit</button>
                                         </form>
                                     </div>
