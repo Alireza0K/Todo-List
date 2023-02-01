@@ -22,3 +22,5 @@ Route::get("/TodoList", [\App\Http\Controllers\TodoPageController::class , "inde
 Route::post("/TodoList", [\App\Http\Controllers\TodoPageController::class , "addTask"]);
 
 Route::delete("/TodoList/{taskId}", [\App\Http\Controllers\TodoPageController::class , "deleteTask"])->name("delete");
+
+Route::put('/TodoList/complete/{id}', [\App\Http\Controllers\TodoPageController::class , "completeTask"])->name("complete");

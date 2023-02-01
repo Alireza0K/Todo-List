@@ -24,6 +24,8 @@ class TodoPageController extends Controller
         
         $task->description = $request->description;
 
+        $task->status = 0;
+
         $task->save();
 
         return redirect()->route("home");
@@ -34,5 +36,20 @@ class TodoPageController extends Controller
         Task::where('id', $taskId)->delete();
 
         return redirect()->route("home");
+    }
+
+    public function completeTask(Request $request ,$id)
+    {
+        $task = Task::find($request->id);
+
+        if($task->status == 0){
+            $task->status = 1;
+        }elseif($task->status == 1){
+            $task->status = 0;
+        }
+
+        $task->save();
+
+        return redirect(route("home"));
     }
 }

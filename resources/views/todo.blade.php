@@ -83,6 +83,7 @@
                     <div class="TasksBoxes">
                         @foreach ($tasks as $task)
                             <div class="taskBox">
+
                                 <div class="taskBoxContent">
                                     <div class="leftSide">
                                         <div class="taskTitle">
@@ -93,19 +94,26 @@
                                         </div>
                                     </div>
                                     <div class="rightSide">
-                                        <form action={{ route('delete', ['taskId'=>$task->id]) }} method="POST">
+                                        
+                                        <form action={{ route('delete', ['taskId' => $task->id]) }} method="POST">
                                             @csrf
-                                            @method('delete') 
+                                            @method('delete')
                                             <button type="submit" class="btn btn-delete">Delete</button>
                                         </form>
-                                        <form action="" method="POST">
+                                        <form action={{ route('complete', ['id' => $task->id]) }} method="POST">
                                             @csrf
-                                            @method('delete') 
-                                            <button class="btn btn-complete">Complete</button>
+                                            @method('PUT')
+                                            @php($visiable = "")
+                                            @php($complete = "Complete")
+                                            @if ($task->status > 0)
+                                                @php($visiable = 'background-color: #ff000000; color:#1A1C20')
+                                                @php($complete = "Completed")
+                                            @endif
+                                            <button class="btn btn-complete" style="{{ $visiable }}">{{$complete}}</button>
                                         </form>
                                         <form action="" method="POST">
                                             @csrf
-                                            @method('delete') 
+                                            @method('delete')
                                             <button class="btn btn-edit">Edit</button>
                                         </form>
                                     </div>
