@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mod;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -10,8 +11,9 @@ class TodoPageController extends Controller
     public function index()
     {
         $tasks = Task::all();
+        $mods = Mod::all();
 
-        return view("todo" ,["tasks" => $tasks]);
+        return view("todo" ,["tasks" => $tasks, "mods" => $mods]);
     }
 
     public function addTask(Request $request)
@@ -51,5 +53,30 @@ class TodoPageController extends Controller
         $task->save();
 
         return redirect(route("home"));
+    }
+
+    public function editTask(Request $request,$taskId)
+    {
+        return redirect(route("home"));
+    }
+
+    public function addMod(Request $request)
+    {
+        $mod = new Mod();
+
+        $mod->user_id = $request->user_id;
+
+        $mod->name = $request->modeName;
+
+        $mod->save();
+
+        return redirect()->route("home");
+    }
+
+    public function deleteMod(Request $request, $modId)
+    {
+        Mod::where('id', $modId)->delete();
+
+        return redirect()->route("home");
     }
 }
