@@ -12,4 +12,11 @@ class UpdateTaskController extends Controller
         $taskInfo = $taskId;
         return view("task.updateTask", compact("taskInfo"));
     }
+
+    public function update(Request $request,Task $taskId)
+    {
+        $taskId->update($request->all());
+
+        return redirect()->route("home");
+    }
 }
