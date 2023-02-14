@@ -142,12 +142,48 @@ header .headerBox .btn-register{
     float: right;
 }
 
+header .headerBox h1{
+    border: 1px solid black;
+    border-left: none;
+    border-top: none;
+    position: fixed;
+    border-right: none;
+    padding: 1px 90px 5px 0px;
+    font-size: larger;
+}
+
 .main .btn{
     outline: none;
     border: none;
     padding: 8px 7px;
     border-radius: 5px;
     font-size: medium;
+}
+
+.EditBox .EditBoxForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    align-content: space-around;
+    flex-wrap: nowrap;
+}
+
+.EditBox .EditBoxForm .input{
+    border: 1px solid gray;
+    width: 30%;
+    padding: 8px 7px;
+    border-radius: 5px;
+    font-size: medium;
+}
+
+.EditBox .EditBoxForm .textarea{
+    height: 150px;
+    font-size: medium;
+    font-family: sans-serif;
+    border-radius: 4px;
+    resize: vertical;
 }
 
 .btn-delete{
