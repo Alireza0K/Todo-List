@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::get("/TodoList", [\App\Http\Controllers\TodoPageController::class , "index"])->name("home");
 
-Route::post("/TodoList", [\App\Http\Controllers\TodoPageController::class , "addTask"]);
+Route::post("/TodoList/add-task", [\App\Http\Controllers\TodoPageController::class , "addTask"])->name("addTask");
 
 Route::delete("/TodoList/{taskId}", [\App\Http\Controllers\TodoPageController::class , "deleteTask"])->name("delete");
 
