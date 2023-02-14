@@ -17,9 +17,10 @@
 
         <section>
             <div class="EditBox">
-                <form action="" method="" class="EditBoxForm">
-                    <input type="text" class="input" name="TaskName" id="" placeholder="Task name">
-                    <textarea class="input textarea" name="TaskDescription" placeholder="Task Desctiption" cols="30" rows="10"></textarea>
+                <form action={{route("update", $taskInfo->id)}} method="POST" class="EditBoxForm">
+                    @csrf
+                    <input type="text" class="input" name="name" id="" placeholder="Task name"f value="{{$taskInfo->name}}">
+                    <textarea class="input textarea" name="description" placeholder="Task Desctiption" cols="30" rows="10">{{$taskInfo->description}}</textarea>
                     <button class="btn btn-edit">Update</button>
                 </form>
             </div>
