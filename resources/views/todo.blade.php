@@ -41,32 +41,26 @@
                         <h3>Mods</h3>
                     </div>
                     <section>
+                        @foreach($mods as $mod)
                         <div class="modBox">
                             <div class="ModboxContent">
-                                <h3>Mod Name</h3>
-                                <p>Mod Description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                    eiusmod
-                                    tempor
-                                    incididunt ut labore et dolore magna aliqua.</p>
-                                <button class="btn">Delete</button>
+                                <h3>{{$mod->name}}</h3>
+                                <p></p>
+                                <form action={{ route('deleteMod', ['modId' => $mod->id]) }} method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn">Delete</button>
+                                </form>
                             </div>
                         </div>
-
-                        <div class="modBox">
-                            <div class="ModboxContent">
-                                <h3>Mod Name</h3>
-                                <p>Mod Description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                    eiusmod
-                                    tempor
-                                    incididunt ut labore et dolore magna aliqua.</p>
-                                <button class="btn">Delete</button>
-                            </div>
-                        </div>
+                        @endforeach
 
                         <div class="addMod">
                             <div class="addModForm">
-                                <form action="">
-                                    <input type="text" placeholder="Mod Name">
+                                <form action={{ route("addMod") }} method="POST">
+                                    @csrf
+                                    <input type="text" placeholder="Mod Name" name="modeName" autocomplete="off">
+                                    <input type="text" placeholder="" style="display: none" name="user_id" value="1">
                                     <button class="btn" type="submit">Add Mod</button>
                                 </form>
                             </div>
@@ -83,6 +77,7 @@
                     <div class="TasksBoxes">
                         @foreach ($tasks as $task)
                             <div class="taskBox">
+
                                 <div class="taskBoxContent">
                                     <div class="leftSide">
                                         <div class="taskTitle">
@@ -93,9 +88,28 @@
                                         </div>
                                     </div>
                                     <div class="rightSide">
-                                        <button class="btn btn-edit">Edit</button>
-                                        <button class="btn btn-complete">Complete</button>
-                                        <button class="btn btn-delete">Delete</button>
+                                        
+                                        <form action={{ route('delete', ['taskId' => $task->id]) }} method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-delete">Delete</button>
+                                        </form>
+                                        <form action={{ route('complete', ['id' => $task->id]) }} method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            @php($visiable = "")
+                                            @php($complete = "Complete")
+                                            @if ($task->status > 0)
+                                                @php($visiable = 'background-color: #ff000000; color:#1A1C20')
+                                                @php($complete = "Completed")
+                                            @endif
+                                            <button class="btn btn-complete" style="{{ $visiable }}">{{$complete}}</button>
+                                        </form>
+                                        <form action={{route('edit', ['taskId' => $task->id])}} method="get">
+                                            @csrf
+                                            @method('get')
+                                            <button class="btn btn-edit">Edit</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -103,10 +117,12 @@
 
                     </div>
                     <div class="addTask">
-                        <form action="">
+                        <form action={{ route("addTask") }} method="POST">
+                            @csrf
                             <input type="text" placeholder="Task Name" name="taskname">
                             <input type="text" placeholder="Description" name="description">
-                            <button class="btn">Add Task</button>
+                            <input type="text" placeholder="" style="display: none" name="user_id" value="1">
+                            <button class="btn" type="submit">Add Task</button>
                         </form>
                     </div>
                 </section>
