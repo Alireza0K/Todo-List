@@ -117,7 +117,7 @@
 
                     </div>
                     <div class="addTask">
-                        <form action="\TodoList" method="POST">
+                        <form action={{ route("addTask") }} method="POST">
                             @csrf
                             <input type="text" placeholder="Task Name" name="taskname">
                             <input type="text" placeholder="Description" name="description">
