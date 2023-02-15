@@ -20,6 +20,11 @@
                 <form action={{route("update", $taskInfo->id)}} method="POST" class="EditBoxForm">
                     @csrf
                     <input type="text" class="input" name="name" id="" placeholder="Task name"f value="{{$taskInfo->name}}">
+                    <select name="mod_id" id="">
+                        @foreach ($mods as $mod)
+                            <option value="{{$mod->id}}">{{$mod->name}}</option>
+                        @endforeach
+                    </select>
                     <textarea class="input textarea" name="description" placeholder="Task Desctiption" cols="30" rows="10">{{$taskInfo->description}}</textarea>
                     <button class="btn btn-edit">Update</button>
                 </form>
