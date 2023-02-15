@@ -119,8 +119,8 @@
                     <div class="addTask">
                         <form action={{ route("addTask") }} method="POST">
                             @csrf
-                            <input type="text" placeholder="Task Name" name="taskname">
-                            <input type="text" placeholder="Description" name="description">
+                            <input type="text" placeholder="Task Name" name="name" value="{{old('name')}}" autocomplete="off">
+                            <input type="text" placeholder="Description" name="description" value="{{old('description')}}" autocomplete="off">
                             <input type="text" placeholder="" style="display: none" name="user_id" value="1">
                             <button class="btn" type="submit">Add Task</button>
                         </form>

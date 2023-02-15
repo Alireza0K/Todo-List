@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->boolean("status")->default(0);
+            $table->foreignId("mod_id")->nullable()->constrained()->onDelete("cascade")->onUpdate("cascade");
         });
     }
 
@@ -26,7 +26,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->dropColumn("status");
+            $table->removeColumn("mod_id");
+            $table->dropColumn("mod_id");
         });
     }
 };
