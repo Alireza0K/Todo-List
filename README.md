@@ -1,11 +1,10 @@
+[![Alt text](https://github.com/Alireza0K/Todo-List/blob/BackEnd/panel-image.png)](https://github.com/Alireza0K)
 # Todo List
 ## What is Todo list
 
 This app helps you list your daily tasks or anything you want to do, this project is an offline to-do list which means your to-do list is safe So don't worry about
 leaked your data.
 
-
-[![Alt text](https://github.com/Alireza0K/Todo-List/blob/BackEnd/panel-image.png)](https://github.com/Alireza0K)
 
 ## Now what does the Todo list do for me?
 1. In the Todo list I created, you can create different modes for different modes. And put the tasks related to that mod in it.

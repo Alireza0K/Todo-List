@@ -14,11 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get("/TodoList", [\App\Http\Controllers\TodoPageController::class , "index"])->name("home");
+Route::get("/", [\App\Http\Controllers\TodoPageController::class , "index"])->name("home");
 
 Route::post("/TodoList/add-task", [\App\Http\Controllers\TodoPageController::class , "addTask"])->name("addTask");
 
