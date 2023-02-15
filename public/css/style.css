@@ -168,11 +168,21 @@ header .headerBox h1{
     gap: 10px;
     align-content: space-around;
     flex-wrap: nowrap;
+    margin: 0px auto;
+    width: 30%;
 }
 
 .EditBox .EditBoxForm .input{
     border: 1px solid gray;
-    width: 30%;
+    width: 100%;
+    padding: 8px 7px;
+    border-radius: 5px;
+    font-size: medium;
+}
+
+.EditBox .EditBoxForm select{
+    border: 1px solid gray;
+    width: 104%;
     padding: 8px 7px;
     border-radius: 5px;
     font-size: medium;
@@ -403,4 +413,19 @@ header .headerBox h1{
 .addTask button{
     background-color: #1A1C20;
     color: white;
+}
+
+.tag{
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: flex-start;
+    outline: none;
+    border: none;
+    gap: 5px;
+    border-radius: 5px;
+    padding: 8px 0px;
+    font-size: medium;
 }
