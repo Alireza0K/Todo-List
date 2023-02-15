@@ -1,45 +1,55 @@
 # Todo List
 ## What is Todo list
-To-do list is a list of daily tasks that you have to remind or list to do.
+
+This app helps you list your daily tasks or anything you want to do, this project is an offline to-do list which means your to-do list is safe So don't worry about
+leaked your data.
+
+
+![Alt text]( "a title")
 
 ## Now what does the Todo list do for me?
 1. In the Todo list I created, you can create different modes for different modes. And put the tasks related to that mod in it.
 2. You can create an account and log in and add your tasks and mods.
 
-3. These repositories are built with php, so if you are familiar with this beautiful language, you can develop it for yourself.
+3. These repositories are built with php Laravel, so if you are familiar with this beautiful language, you can develop it for yourself.
 
+4. this todo list is offline that means you dont need to online your daily task, then its secure.
 ## Guide 
 ---
-### In the beginning, you have to customize the config for yourself so that it can communicate with your host.
+#### In the beginning, you have to customize the config for yourself so that it can communicate with your host.
 
-Go to the `config` file in the bootstrap folder and change the configuration for yourself with the markup I did for you.
+#### at the first Change this file .env.example to .env
+#### after changes you most to change the config, go to .env file and custom for your self 
 
 Change This:
 ```php
- $c_information = (object)[
-    # data base name
-    "dbname" => "todolist",
-    # host name
-    "host" => "localhost",
-    "username" => "root",
-    "password" => ""
-];
+    #change this 
+    APP_NAME=Laravel
+    .
+    .
+    .
+    # and change this 
+    DB_DATABASE=example_app
+    .
+    # and this for connect to your data base
+    DB_USERNAME=root
+    DB_PASSWORD=
+
 ```
 
-After making the above settings, it is time to do the next series of settings, you will then go to the `constant.php` file in the same folder and implement your settings.
+#### After change above setting you should to migrate database setting.
 
-Change This:
+#### Go to your terminal and paste this command.
+#### Command:
 
 ```php
-# You can put your base url here
-define("BASE_URL" , "http://code-pure-php/Todo-List/");
+    # this command making your table and anything you wanted.
+    php artisan migrate
 
-# You can put your base path here
-define("BASE_PATH" , "C:/xampp/htdocs/Code-Pure-PHP/Todo-List");
 ```
 ---
 ### After all these settings, your todo list will start working, and you can use it.
 
-If you are eager to develop this Todo list, I have marked everywhere this project , so your work will be very easy. I hope this repo has helped you. If you have any questions, you can email me or contact me via Instagram.
+If you are eager to develop this Todo list, I have marked everywhere this project , so your work will be very easy. I hope this repo has helped you. If you have any questions, you can email me or contact me via Instagram or Telegram.
 
-#### [Instagram](https://www.instagram.com/alirez_0k/) || Email: alireza.karimi.programmer@gmail.com
+#### [Instagram](https://www.instagram.com/alirez_0k/) || [Telegram](tg://user?id=Alirez0K) ||Email: alireza.karimi.programmer@gmail.com
