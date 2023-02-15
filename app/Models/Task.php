@@ -9,5 +9,10 @@ class Task extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', "description"];
+    protected $fillable = ['user_id','name', "description", "mod_id"];
+
+    public function mod()
+    {
+        return $this->belongsTo(Mod::class);
+    }
 }

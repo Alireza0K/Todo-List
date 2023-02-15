@@ -18,17 +18,7 @@ class TodoPageController extends Controller
 
     public function addTask(Request $request)
     {
-        $task = new Task();
-
-        $task->user_id = $request->user_id;
-
-        $task->name = $request->taskname;
-        
-        $task->description = $request->description;
-
-        $task->status = 0;
-
-        $task->save();
+        Task::create($request->all());
 
         return redirect()->route("home");
     }
